@@ -83,22 +83,20 @@ public class MultiplesOf3Or5 {
 		long nForM3 = maxValue / m3;
 		
 		// Calculate the sum of each multiple using the arithmetic series
-		double sumOfM1 = sumOfArithmeticSeries(nForM1, m1, m1);
-		double sumOfM2 = sumOfArithmeticSeries(nForM2, m2, m2);
-		double sumOfM3 = sumOfArithmeticSeries(nForM3, m3, m3);
+		long sumOfM1 = sumOfArithmeticSeries(nForM1, m1, m1);
+		long sumOfM2 = sumOfArithmeticSeries(nForM2, m2, m2);
+		long sumOfM3 = sumOfArithmeticSeries(nForM3, m3, m3);
 		
 		// Calculate the sum of the first and second multiples below "x"
-		double sum = sumOfM1 + sumOfM2 - sumOfM3;
+		long sum = sumOfM1 + sumOfM2 - sumOfM3;
 		
 		// Print the sum
-		System.out.println(
-				String.format("%.0f", sum)
-				);
+		System.out.println(sum);
 	}
 	
 	// Helper method for calculating the sum of an arithmetic series
-	private static double sumOfArithmeticSeries(double n, double a, double d) {
-		return (n / 2.0) * (2.0 * a + (n - 1) * d);
+	private static long sumOfArithmeticSeries(double n, double a, double d) {
+		return (long) ((n / 2.0) * (2.0 * a + (n - 1) * d));
 	}
 	
 	// For executing sample questions

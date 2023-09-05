@@ -4,7 +4,7 @@ import java.util.*;
 public class PlusMinus {
 	
     /*
-     * Time Complexity: O(n)
+     * Time Complexity: O(n), n = size of the array
      * Space Complexity: O(1)
      */
 	public static void solution(List<Integer> arr) {
