@@ -5,7 +5,8 @@ public class MiniMaxSum {
 	
 	/*
 	 * Solution with for loop
-	 * Time Complexity: O(n) // O(1) with hackerrank constraint - since the array size will always be 5
+	 * Time Complexity: O(n) where n is the size of the array
+	 * 					O(1) with hackerrank constraint - since the array size will always be 5
 	 * Space Complexity O(1)
 	 */
 	public static void solution1(List<Integer> arr) {
