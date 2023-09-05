@@ -7,6 +7,7 @@
  * Then we add the multiples of 3, plus the multiples of 5, and subtract the multiples of (3 * 5).
  * 		The reason we subtract the multiples of (3 * 5) is because they are counted twice. Once by multiples of 3 and again by multiples of 5. We only want the multiple one time, not two.
  */
+// https://projecteuler.net/problem=1
 public class MultiplesOf3Or5 {
 	
 	/*
