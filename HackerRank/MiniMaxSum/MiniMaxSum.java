@@ -1,25 +1,22 @@
 import java.util.*;
 
-// https://www.hackerrank.com/challenges/mini-max-sum/problem
 public class MiniMaxSum {
 	
 	/*
-	 * Solution with for loop
-	 * Time Complexity: O(n) where n is the size of the array
-	 * 					O(1) with hackerrank constraint - since the array size will always be 5
-	 * Space Complexity O(1)
+	 * Time Complexity: O(1): Since the array size will always be 5, the time is constant 
+	 * Space Complexity O(1): Since the array size will always be 5, the space is constant
 	 */
-	public static void solution1(List<Integer> arr) {
+	public static void solution(List<Integer> arr) {
 		// We will iterate through the array, adding the sum, and keep track of the min / max elements.
 		
 		// The max value an element in the array can be is 10^9. We will set the minNum to Long.MAX_VALUE (2^63 - 1) which is greater than 10^9.
-		long minNum = arr.get(0);
+		long minNum = Long.MAX_VALUE;
 		// The min value an element in the array can be is 1 so we will set the maxNum to 0.  
-		long maxNum = arr.get(0);
+		long maxNum = 0;
 		
 		// Get the sum of the array
-		long arrSum = arr.get(0);
-		for(int i = 1; i < arr.size(); i++) {
+		long arrSum = 0;
+		for(int i = 0; i < arr.size(); i++) {
 			// Get the current element of the array
 			long currentNum = arr.get(i);
 			// Add to the sum
@@ -40,6 +37,15 @@ public class MiniMaxSum {
 		
 		// Print result
 		System.out.println(minSum + " " + maxSum);
+	}
+	
+
+	// For executing sample questions
+	public static void main(String[] args) {
+		solution(List.of(1, 3, 5, 7, 9));
+			// Expected result: 16 24
+		solution(List.of(769082435, 210437958, 673982045, 375809214, 380564127));
+			// Expected result: 10 14
 	}
 	
 }

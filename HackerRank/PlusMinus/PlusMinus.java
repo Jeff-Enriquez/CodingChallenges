@@ -1,11 +1,9 @@
 import java.util.*;
 
-// https://www.hackerrank.com/challenges/plus-minus
 public class PlusMinus {
 	
     /*
-     * Solution1 - solved with for loop
-     * Time Complexity: O(n), where n = array size
+     * Time Complexity: O(n)
      * Space Complexity: O(1)
      */
 	public static void solution(List<Integer> arr) {
@@ -43,4 +41,18 @@ public class PlusMinus {
 				String.format("%.6f", zeroRatio)
 				);
     }
+	
+    // For executing sample questions
+	public static void main(String... args) {
+		solution(List.of(1, 1, 0, -1, -1));
+			// Expected result:
+				// 0.400000
+				// 0.400000
+				// 0.200000
+		solution(List.of(-4, 3, -9, 0, 4, 1));
+			// Expected result:
+				// 0.500000
+				// 0.333333
+				// 0.166667
+	}
 }
