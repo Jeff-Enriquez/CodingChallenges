@@ -2,64 +2,39 @@ import java.util.*;
 
 // https://www.hackerrank.com/challenges/sparse-arrays/problem
 public class SparseArrays {
-
-    /*
-     * Time Complexity: O(n^x) where n = queries.size() and x = strings.size()
-     * Space Complexity: O(n) where n = queries.size()
-     */
-	public static List<Integer> solution1(List<String> strings, List<String> queries) {
-		// Variable to store the results
-		List<Integer> results = new ArrayList<>();
-		// Initialize the results
-		for(int i = 0; i < queries.size(); i++)
-			results.add(0);
-		
-		// Time Complexity: O(n)
-		// Loop through all of the queries
-		for(int q = 0; q < queries.size(); q++) {
-			String query = queries.get(q);
-			// Time Complexity: O(x)
-			// For each query, loop through all of the strings
-			for(int s = 0; s < strings.size(); s++) {
-				String string = strings.get(s);
-				// If the query equals the string, increment the count
-				if(query.equals(string)){
-					Integer currentCount = results.get(q);
-					currentCount++;
-					results.set(q, currentCount);
-				}
-			}
-		}
-		
-		return results;
-	}
 	
 	/*
-	 * Time Complexity: O(n) where n = queries.size() + strings.size()
-	 * Space Complexity: O(n) where n = queries.size()
+	 * Time Complexity: O(s + q) where s = strings.size() and q = queries.size()
+	 * Space Complexity: O(q) where q = queries.size()
 	 */
-	public static List<Integer> solution2(List<String> strings, List<String> queries) {
-		// Variable to store the results
+	public static List<Integer> solution(List<String> strings, List<String> queries) {
+		// Key: each unique query in the queries array
+		// Value: the count of those queries found in the strings array
+		Map<String, Integer> queriesCount = new HashMap<>();
+		
+		// Add all the keys (queries) to the HashMap
+		for(String query : queries)
+			queriesCount.put(query, 0);
+		
+		// Loop through all of the strings
+		for(String string : strings) {
+			// If that string is found in the HashMap, it will return a value, otherwise it will return null.
+			Integer count = queriesCount.get(string);
+			// If a value is found, increment the count - how many times the query was found in the strings array.
+			if(count != null)
+				queriesCount.put(string, ++count);
+		}
+		
+		// The problem states we need to return an array. Create an array to store the queries count.
 		List<Integer> results = new ArrayList<>(queries.size());
 		
-		// Key = the string in the strings array
-		// Value = how many times the string appears in the strings array
-		HashMap<String, Integer> countStrings = new HashMap<>();
-		
-		// Time Complexity: O(n)
-		// Set the count of every string in the strings array
-		for(String string : strings) {
-			Integer count = countStrings.getOrDefault(string, 0);
-			countStrings.put(string, ++count);
-		}
-		
-		// Time Complexity: O(n)
-		// Get the count of every query in the strings array
+		// Loop through the queries array
 		for(String query : queries) {
-			Integer count = countStrings.getOrDefault(query, 0);
-			results.add(count);
+			// Add each query count to the array
+			results.add(queriesCount.get(query));
 		}
-			
+		
+		// Return the array of counts
 		return results;
 	}
 	
