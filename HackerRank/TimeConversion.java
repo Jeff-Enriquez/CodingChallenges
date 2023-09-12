@@ -1,4 +1,4 @@
-// Java has classes to handle date-time formatting. I will not be using that class. I will be solving this in a way that is not language specific.
+// Java has classes to handle date-time formatting. Those classes are not used so that the solution is more language agnostic.
 // https://www.hackerrank.com/challenges/time-conversion/problem
 public class TimeConversion {
 	
@@ -10,32 +10,31 @@ public class TimeConversion {
 		// Save result in this variable
 		String militaryTime = "";
 		
-		// Separates the string into an array of parts. 
-		// Example: "12:01:00PM" is separated into ["12", "01", "00PM"]
-		String[] timeParts = s.split(":");
+		// Saves the "hh" of "hh:mm:ssAM/PM"
+		String hours = s.substring(0, 2);
+		// Saves the ":mm:ss" of "hh:mm:ssAM/PM"
+		String minutesAndSeconds = s.substring(2, 8);
 		
-		// For readability, store each part in its own string
-		String hours = timeParts[0];
-		String minutes = timeParts[1];
-		String seconds = timeParts[2].substring(0, 2);
-		String middayIndicator = timeParts[2].substring(2, 4);
-
-		// Convert 12-hour time to military time
-		if(middayIndicator.equals("PM")) {
+		// Convert to military time
+		if(s.endsWith("AM")) {
+			// If it's AM and the hour is 12 then convert the hour to 00
 			if(hours.equals("12")) {
-				militaryTime = s.substring(0, 8);
+				militaryTime = "00" + minutesAndSeconds;
+			// It it's AM and the hour is NOT 12 then leave the time alone
 			} else {
-				int militaryHour = Integer.valueOf(hours) + 12;
-				militaryTime = militaryHour + ":" + minutes + ":" + seconds;
+				militaryTime = hours + minutesAndSeconds;
 			}
 		} else {
+			// If it's PM and the hour is 12 then leave the time alone
 			if(hours.equals("12")) {
-				militaryTime = "00:" + minutes + ":" + seconds;
+				militaryTime = hours + minutesAndSeconds;
+			// If it's PM and the hour is NOT 12 then add 12 to the hour
 			} else {
-				militaryTime = s.substring(0, 8);
+				militaryTime = (12 + Integer.valueOf(hours)) + minutesAndSeconds;
 			}
 		}
-			
+		
+		// Return the military time
 		return militaryTime;
 	}
 
