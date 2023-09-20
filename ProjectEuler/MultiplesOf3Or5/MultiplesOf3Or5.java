@@ -13,7 +13,9 @@ public class MultiplesOf3Or5 {
 	/*
 	 * Solution with for loops
 	 * 
-	 * Time Complexity: O((x / m1) + (x / m2))
+	 * Time Complexity: O((x / m1) + (x / m2) + (x / (m1 * m3)))
+	 * 						-> we can remove (x / (m1 * m3)) since it will always be less than (x / m1) or (x / m2) 
+	 * 						-> O((x / m1) + (x / m2)) 
 	 * Space Complexity: O(1)
 	 * 
 	 * @param x 	the value of which we calculate the multiples.
