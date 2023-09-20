@@ -2,10 +2,13 @@ import java.util.*;
 public class PermutingTwoArrays {
 	
 	/*
-	 * Time Complexity: O(a*log(a) + b*log(b))
-	 * 						-> O(n*log(n)) we can reduce because we know that A and B will always be the same size
+	 * Time Complexity: O(a*log(a) + b*log(b) + a) where a is the size of "A" array and b is the size of "B" array.
+     *                      -> we can drop the smaller time complexity
+     *                      -> O(a*log(a) + b*log(b))
+     *                      -> we don't need 'a' and 'b' because we know that "A" and "B" will always be the same size
+	 * 						-> O(n*log(n))
 	 * Space Complexity: O(a + b)
-	 * 						-> O(n) we can reduce because we know that A and B will always be the same size
+	 * 						-> O(n) we can reduce because we know that "A" and "B" will always be the same size
 	 */
 	public static String solution(int k, List<Integer> A, List<Integer> B) {
 		// Sort array "A" in ascending order

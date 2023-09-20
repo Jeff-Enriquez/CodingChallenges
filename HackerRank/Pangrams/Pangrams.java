@@ -3,7 +3,9 @@ import java.util.*;
 public class Pangrams {
 	
 	/*
-	 * Time Complexity: O(n^26)
+	 * Time Complexity: O(26n), where n is the size of string s
+	 * 						-> drop the constant
+	 * 						-> O(n)
 	 * Space Complexity: O(1)
 	 */
 	public static String solution1(String s) {
@@ -36,7 +38,9 @@ public class Pangrams {
 	}
 
 	/*
-	 * Time Complexity: O(n)
+	 * Better O(n) time than solution1 - for large strings.
+	 * 
+	 * Time Complexity: O(n), where n is the size of string s
 	 * Space Complexity: O(1)
 	 */
 	public static String solution2(String s) {
