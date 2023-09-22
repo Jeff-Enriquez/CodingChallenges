@@ -1,5 +1,6 @@
 import java.util.List;
 
+// https://www.hackerrank.com/challenges/lonely-integer/problem
 public class LonelyInteger {
 
 	/*

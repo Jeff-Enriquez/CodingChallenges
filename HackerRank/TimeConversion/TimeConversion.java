@@ -3,9 +3,9 @@
 public class TimeConversion {
 	
 	/*
-     * Time Complexity: O(1)
-     * Space Complexity: O(1)
-     */
+	 * Time Complexity: O(1)
+	 * Space Complexity: O(1)
+	 */
 	public static String solution(String s) {
 		// Save result in this variable
 		String militaryTime = "";
