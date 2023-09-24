@@ -1,6 +1,6 @@
 import java.util.*;
 //https://www.hackerrank.com/challenges/countingsort1/problem
-public class CountingSort {
+public class CountingSort1 {
 	
     /*
 	 * Time Complexity: O(n)
