@@ -2,16 +2,16 @@ import java.util.*;
 // https://www.hackerrank.com/challenges/one-month-preparation-kit-the-birthday-bar/problem
 public class SubarrayDivision1 {
     /*
-	 * Time Complexity: O(n)
-	 * Space Complexity: O(1)
-	 */
+     * Time Complexity: O(n)
+     * Space Complexity: O(1)
+     */
     public static int solution(List<Integer> s, int d, int m) {
-		// If the segment size (m) is greater than the number of segments (s.size()) 
-			// then it is impossible to split the chocolate bar
-		if(m > s.size())
+        // If the segment size (m) is greater than the number of segments (s.size()) 
+            // then it is impossible to split the chocolate bar
+        if(m > s.size())
             return 0;
 		
-		// Store the counts
+        // Store the counts
         int countOfSegments = 0;
         // Track the sum of segments
         int sumOfCurrentSegment = 0;
