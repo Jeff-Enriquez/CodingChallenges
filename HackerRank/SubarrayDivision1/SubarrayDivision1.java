@@ -1,4 +1,5 @@
 import java.util.*;
+// https://www.hackerrank.com/challenges/one-month-preparation-kit-the-birthday-bar/problem
 public class SubarrayDivision1 {
     /*
 	 * Time Complexity: O(n)
