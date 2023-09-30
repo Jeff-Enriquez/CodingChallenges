@@ -9,8 +9,11 @@ public class LargestPrimeFactor {
 	 * Space Complexity: O(1)
 	 */
 	public static long solution1(long x) {
+		// The number must be greater than 0
+		if(x < 1)
+			throw new IllegalArgumentException();
 		// Start with the largest number (x) and increment down
-		for(long currentNum = x; currentNum > 1; currentNum--) {
+		for(long currentNum = x; currentNum >= 1; currentNum--) {
 			// If currentNum is NOT a factor of x, get the next number
 			if(x % currentNum != 0) // Occurs O(x) times
 				continue;
@@ -29,8 +32,8 @@ public class LargestPrimeFactor {
 			if(isPrime)
 				return currentNum;
 		}
-		// x <= 1
-		return x;
+		// The code should never get to this point
+		throw new RuntimeException("My code failed");
 	}
 	
 	/*
