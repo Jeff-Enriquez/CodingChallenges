@@ -1,15 +1,16 @@
 # Math Formulas
 > This document contains math formulas that I have used when solving coding problems on HackerRank or ProjectEuler.
-## Contents
-- [Math Formulas](#math-formulas)
-  - [Contents](#contents)
-    - [Sum of an arithmetic series](#sum-of-an-arithmetic-series)
-    - [Sum of the first n natural numbers](#sum-of-the-first-n-natural-numbers)
-  - [Permutations](#permutations)
-    - [Permutation without repetition](#permutation-without-repetition)
-  - [Combinations](#combinations)
-    - [Combinations without repetition](#combinations-without-repetition)
 
+## Table of Contents
+- [Sum of an arithmetic series](#sum-of-an-arithmetic-series)(#sum-of-the-first-n-natural-numbers)
+- [Sum of the first n natural numbers](#sum-of-the-first-n-natural-numbers)
+- [Permutations](#permutations)
+   - [Permutation without repetition](#permutation-without-repetition)
+- [Combinations](#combinations)
+   - [Combinations without repetition](#combinations-without-repetition)
+- [Tips](#tips)
+   - [Palindrome of a number](#palindrome-of-a-number)
+   - [Finding products of a number](#finding-products-of-a-number)
 ### Sum of an arithmetic series
 `(n / 2) * (2a + (n - 1) * d)`
  *n* represents the number of terms to be added, *a* is the first term in the sequence, and *d* is the constant value between terms.
@@ -66,13 +67,13 @@ for(i = (n - r + 1); i <= n; i++){
    answer = answer * i;
 }
 ```
-<ins>How the formula is simplified
-n = 5, r = 2</ins>
-answer = 5! / (4 - 2)!
-answer = 5! / 2!
-answer = (1 * 2 * 3 * 4 * 5) / (1 * 2)
-*divide 1 * 2 from both sides*
-answer = (3 * 4 * 5) **SAME AS** (n - r + 1) * ... * n
+<ins>How the formula is simplified. 
+Example: n = 5, r = 2</ins>
+answer = 5! / (5 - 2)!
+answer = 5! / 3!
+answer = (1 * 2 * 3 * 4 * 5) / (1 * 2 * 3)
+*divide 1 * 2 * 3 from both sides*
+answer = (4 * 5) **SAME AS** (n - r + 1) * ... * n
 
 ## Combinations
 ### Combinations without repetition
@@ -92,12 +93,14 @@ r = number of choosing objects from the set*
 **Coding Tip**
 Calculating a factorial can take a lot of time and the numbers tend to become very large. It is best to simplify the equation before calculating the factorial. The simplified version when programming is
 ```
+### FORMULA ###
 Formula if r > (n - r): 
    ((r + 1) * ... * n) / (n - r)!
 Formula if r < (n - r):
    ((n - r + 1) * ... * n) / r!
 ```
 ```
+### CODE ###
 startingNumerator = r > (n - r) ? (r + 1) : (n - r + 1)
 numerator = 0;
 for(i = startingNumerator; i <= n; i++){
@@ -125,3 +128,16 @@ answer = 5! / (2! 3!)
 answer = (1 * 2 * 3 * 4 * 5) / ((1 * 2) ( 1 * 2 * 3)) 
 *divide 1 * 2 * 3 from both sides*
 answer = (4 * 5) / (1 * 2) **SAME AS** ((n - r + 1) * ... * n) / r!
+
+## Tips
+### Palindrome of a number
+All palindromes are divisible by **11**.
+Proof using 1111:
+P = 1000x + 100y + 10y + x
+P = 1001x + 110y
+P = **11**(91x + 11y)
+### Finding products of a number
+All products of a number can be found by checking numbers **1 to √n**
+Example: Find all factors of 100.
+√100 = 10
+[1, <span style="color:Tomato">2</span>, <span style="color:SlateBlue">4</span>, <span style="color:MediumSeaGreen">5</span>, <span style="color:DodgerBlue">10</span>, <span style="color:DodgerBlue">10</span>, <span style="color:MediumSeaGreen">20</span>, <span style="color:SlateBlue">25</span>, <span style="color:Tomato">50</span>, 100]
