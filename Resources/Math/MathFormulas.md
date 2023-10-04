@@ -2,16 +2,19 @@
 > This document contains math formulas that I have used when solving coding problems on HackerRank or ProjectEuler.
 
 ## Table of Contents
-- [Sum of an arithmetic series](#sum-of-an-arithmetic-series)(#sum-of-the-first-n-natural-numbers)
-- [Sum of the first n natural numbers](#sum-of-the-first-n-natural-numbers)
+- [Sum of an Arithmetic Series](#sum-of-an-arithmetic-series)
+- [Sum of the First n Natural Numbers](#sum-of-the-first-n-natural-numbers)
 - [Permutations](#permutations)
-   - [Permutation without repetition](#permutation-without-repetition)
+   - [Permutation Without Repetition](#permutation-without-repetition)
 - [Combinations](#combinations)
-   - [Combinations without repetition](#combinations-without-repetition)
+   - [Combinations Without Repetition](#combinations-without-repetition)
 - [Tips](#tips)
-   - [Palindrome of a number](#palindrome-of-a-number)
-   - [Finding products of a number](#finding-products-of-a-number)
-### Sum of an arithmetic series
+   - [Palindrome of a Number](#palindrome-of-a-number)
+   - [Finding Products of a Number](#finding-products-of-a-number)
+   - [Least Common Multiple](#least-common-multiple)
+      - [Prime Factorization](#prime-factorization)
+      - [Listing Multiples](#listing-multiples)
+### Sum of an Arithmetic Series
 `(n / 2) * (2a + (n - 1) * d)`
  *n* represents the number of terms to be added, *a* is the first term in the sequence, and *d* is the constant value between terms.
 
@@ -26,7 +29,7 @@
 **Coding Tip**
 Be sure to use floating point precision when calculating the formula.
 
-### Sum of the first n natural numbers
+### Sum of the First n Natural Numbers
 `(n * n + n) / 2`
 Calculates the sum of *n*.
 1 + 2 + 3 + ... + n
@@ -44,7 +47,7 @@ Calculates the sum of *n*.
    4 + 3 + 2 + 1 = 10
 
 ## Permutations
-### Permutation without repetition
+### Permutation Without Repetition
 `n!/(n-r)!`
 Permutation relates to the act of arranging all the members of a set into some sequence or order.
 *n = total number of objects in the set
@@ -76,7 +79,7 @@ answer = (1 * 2 * 3 * 4 * 5) / (1 * 2 * 3)
 answer = (4 * 5) **SAME AS** (n - r + 1) * ... * n
 
 ## Combinations
-### Combinations without repetition
+### Combinations Without Repetition
 `n! / (r! (n - r)!)`
 Combinations is a way of selecting items from a collection, such that the order of selection does not matter.
 *n = total number of objects in the set
@@ -130,14 +133,53 @@ answer = (1 * 2 * 3 * 4 * 5) / ((1 * 2) ( 1 * 2 * 3))
 answer = (4 * 5) / (1 * 2) **SAME AS** ((n - r + 1) * ... * n) / r!
 
 ## Tips
-### Palindrome of a number
+### Palindrome of a Number
 All palindromes are divisible by **11**.
 Proof using 1111:
 P = 1000x + 100y + 10y + x
 P = 1001x + 110y
 P = **11**(91x + 11y)
-### Finding products of a number
+### Finding Products of a Number
 All products of a number can be found by checking numbers **1 to √n**
 Example: Find all factors of 100.
 √100 = 10
 [1, <span style="color:Tomato">2</span>, <span style="color:SlateBlue">4</span>, <span style="color:MediumSeaGreen">5</span>, <span style="color:DodgerBlue">10</span>, <span style="color:DodgerBlue">10</span>, <span style="color:MediumSeaGreen">20</span>, <span style="color:SlateBlue">25</span>, <span style="color:Tomato">50</span>, 100]
+
+### Least Common Multiple
+The smallest number that two or more numbers can divide into evenly
+#### Prime Factorization
+Every number is a factor of a prime number. Prime factorization involves breaking down numbers into their prime factors then calculating the least common multiple.
+Solution:
+1) Find the greatest prime factors of each multiple
+2) Multiple the prime factors
+
+```
+// prime numbers
+p = [1, 2, 3, 5, 7, ..., 97]
+// greatest factor
+f = [0, 0, 0, 0, 0, ..., 0] // must be same size as prime numbers array
+
+// We only need to check for prime factors of p[i] ≤ sqrt(n).
+// Why? Because if p[i] > sqrt(n) then p[i]^2 > n.
+
+// p[i]^f[i] = n can be re-written as f[i] = log(n) / log(p[i]). 
+// f[i] must be an integer so round down f[i] = floor(log(n) / log(p[i]))
+
+// After you've found the greatest value of f[i] for all multiples
+greatestPrimeFactor = 1
+for(int i = 0; i < p.size(); i++)
+greatestPrimeFactor *= p[i]^f[i]
+```
+[For more information](https://projecteuler.net/overview=0005)
+#### Listing Multiples
+Solution:
+1) List all multiples of the two numbers. Find the greatest common multiple.
+2) Multiple both numbers.
+3) Divide the result by the greatest common multiple.
+
+Example, given *10* and *20*:
+1) Multiples of 10: 1, 2, 5, *10*
+Multiples of 20: 1, 2, 4, 5, *10*, 20
+Greatest common multiple = 10
+2) 10 * 20 = 200
+3) 200 / 10 = 100
