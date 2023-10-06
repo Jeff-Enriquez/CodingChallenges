@@ -148,7 +148,7 @@ Example: Find all factors of 100.
 ### Least Common Multiple
 The smallest number that two or more numbers can divide into evenly
 #### Prime Factorization
-Every number is a factor of a prime number. Prime factorization involves breaking down numbers into their prime factors then calculating the least common multiple.
+Every number is a factor of a prime number. Prime factorization involves breaking down numbers into their prime factors then calculating the least common multiple. The solution requires a list of all prime numbers less than and equal to the factor.
 Solution:
 1) Find the greatest prime factors of each multiple
 2) Multiple the prime factors
@@ -159,27 +159,27 @@ p = [1, 2, 3, 5, 7, ..., 97]
 // greatest factor
 f = [0, 0, 0, 0, 0, ..., 0] // must be same size as prime numbers array
 
-// We only need to check for prime factors of p[i] ≤ sqrt(n).
-// Why? Because if p[i] > sqrt(n) then p[i]^2 > n.
-
-// p[i]^f[i] = n can be re-written as f[i] = log(n) / log(p[i]). 
-// f[i] must be an integer so round down f[i] = floor(log(n) / log(p[i]))
+// For each multiple
+   // Calculate all prime factors of p[i] ≤ n
+   // p[i]^f[i] = n can be re-written as f[i] = log(n) / log(p[i]).
+   // f[i] must be an integer so round down f[i] = floor(log(n) / log(p[i]))
 
 // After you've found the greatest value of f[i] for all multiples
 greatestPrimeFactor = 1
 for(int i = 0; i < p.size(); i++)
-greatestPrimeFactor *= p[i]^f[i]
+   greatestPrimeFactor *= p[i]^f[i]
 ```
 [For more information](https://projecteuler.net/overview=0005)
+[Code Solution](https://github.com/Jeff-Enriquez/CodingChallenges/blob/main/ProjectEuler/SmallestMultiple/SmallestMultiple.java)
 #### Listing Multiples
-Solution:
-1) List all multiples of the two numbers. Find the greatest common multiple.
-2) Multiple both numbers.
-3) Divide the result by the greatest common multiple.
-
-Example, given *10* and *20*:
-1) Multiples of 10: 1, 2, 5, *10*
-Multiples of 20: 1, 2, 4, 5, *10*, 20
-Greatest common multiple = 10
-2) 10 * 20 = 200
-3) 200 / 10 = 100
+Solution given 6 and 4:
+1. List the factors of the both numbers
+	6 = [1, 2, 3, 6], 4 = [1, 2, 4]
+2. Identify the greatest common factor (GCF)
+	2
+3. Multiply the given numbers: 6, 4
+	24 = 6 * 4
+4. Divide the multiple *24* by the GCF
+	12 = 24 / 2
+5. Answer = 12
+[Code Solution](https://github.com/Jeff-Enriquez/CodingChallenges/blob/main/ProjectEuler/SmallestMultiple/SmallestMultiple.java)
