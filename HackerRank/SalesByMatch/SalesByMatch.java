@@ -1,4 +1,5 @@
 import java.util.*;
+// https://www.hackerrank.com/challenges/three-month-preparation-kit-sock-merchant/problem
 public class SalesByMatch {
     /*
 	 * Time Complexity: O(n), n is the same as the size of "ar"

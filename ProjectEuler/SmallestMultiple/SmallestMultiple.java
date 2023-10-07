@@ -1,5 +1,5 @@
 import java.util.*;
-
+// https://projecteuler.net/problem=5
 public class SmallestMultiple {
 	
 	/*
