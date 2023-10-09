@@ -3,6 +3,7 @@
 
 ## Table of Contents
 - [Sum of an Arithmetic Series](#sum-of-an-arithmetic-series)
+- [Sum of Squares](#sum-of-squares)
 - [Sum of the First n Natural Numbers](#sum-of-the-first-n-natural-numbers)
 - [Permutations](#permutations)
    - [Permutation Without Repetition](#permutation-without-repetition)
@@ -29,6 +30,10 @@
 **Coding Tip**
 Be sure to use floating point precision when calculating the formula.
 
+### Sum of Squares
+`(n * (n + 1) * (2 * n + 1)) / 6.0`
+**This formula is equal to: 1^2 + 2^2 + 3^2 + ... + n^2**
+There are similar formulas for exponents greater than 2. Such as the "Sum of Cubes Formula" and "Faulhaber's Formula" for the sum of the fourth powers. 
 ### Sum of the First n Natural Numbers
 `(n * n + n) / 2`
 Calculates the sum of *n*.
