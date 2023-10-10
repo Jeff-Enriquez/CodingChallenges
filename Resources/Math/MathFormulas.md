@@ -9,12 +9,12 @@
    - [Permutation Without Repetition](#permutation-without-repetition)
 - [Combinations](#combinations)
    - [Combinations Without Repetition](#combinations-without-repetition)
-- [Tips](#tips)
-   - [Palindrome of a Number](#palindrome-of-a-number)
-   - [Finding Products of a Number](#finding-products-of-a-number)
-   - [Least Common Multiple](#least-common-multiple)
-      - [Prime Factorization](#prime-factorization)
-      - [Listing Multiples](#listing-multiples)
+- [Least Common Multiple](#least-common-multiple)
+   - [Prime Factorization](#prime-factorization)
+   - [Listing Multiples](#listing-multiples)
+- [Identify if a Number is a Palindrome](#identify-if-a-number-is-a-palindrome)
+- [Finding all Products of a Number](#finding-all-products-of-a-number)
+- [Calculate the Greatest Power of x Less than n](#calculate-the-greatest-power-of-x-less-than-n)
 ### Sum of an Arithmetic Series
 `(n / 2) * (2a + (n - 1) * d)`
  *n* represents the number of terms to be added, *a* is the first term in the sequence, and *d* is the constant value between terms.
@@ -137,19 +137,6 @@ answer = (1 * 2 * 3 * 4 * 5) / ((1 * 2) ( 1 * 2 * 3))
 *divide 1 * 2 * 3 from both sides*
 answer = (4 * 5) / (1 * 2) **SAME AS** ((n - r + 1) * ... * n) / r!
 
-## Tips
-### Palindrome of a Number
-All palindromes are divisible by **11**.
-Proof using 1111:
-P = 1000x + 100y + 10y + x
-P = 1001x + 110y
-P = **11**(91x + 11y)
-### Finding Products of a Number
-All products of a number can be found by checking numbers **1 to √n**
-Example: Find all factors of 100.
-√100 = 10
-[1, <span style="color:Tomato">2</span>, <span style="color:SlateBlue">4</span>, <span style="color:MediumSeaGreen">5</span>, <span style="color:DodgerBlue">10</span>, <span style="color:DodgerBlue">10</span>, <span style="color:MediumSeaGreen">20</span>, <span style="color:SlateBlue">25</span>, <span style="color:Tomato">50</span>, 100]
-
 ### Least Common Multiple
 The smallest number that two or more numbers can divide into evenly
 #### Prime Factorization
@@ -188,3 +175,28 @@ Solution given 6 and 4:
 	12 = 24 / 2
 5. Answer = 12
 [Code Solution](https://github.com/Jeff-Enriquez/CodingChallenges/blob/main/ProjectEuler/SmallestMultiple/SmallestMultiple.java)
+
+### Identify if a Number is a Palindrome
+All palindromes are divisible by **11**.
+Proof using 1111:
+P = 1000x + 100y + 10y + x
+P = 1001x + 110y
+P = **11**(91x + 11y)
+### Finding all Products of a Number
+All products of a number can be found by checking numbers **1 to √n**
+Example: Find all factors of 100.
+√100 = 10
+[1, <span style="color:Tomato">2</span>, <span style="color:SlateBlue">4</span>, <span style="color:MediumSeaGreen">5</span>, <span style="color:DodgerBlue">10</span>, <span style="color:DodgerBlue">10</span>, <span style="color:MediumSeaGreen">20</span>, <span style="color:SlateBlue">25</span>, <span style="color:Tomato">50</span>, 100]
+
+### Calculate the Greatest Power of x Less than n
+`x^log2(n)`
+For example, if you want to find the greatest power of 2 less than 1000:
+2^log2(1000) -> 2^9.966 -> 2^9 -> 512
+
+```
+// In Java, there is no log2(n). The equivalent is (logE(n) / logE(2))
+int x = 2;
+int n = 1000;
+int greatestPowerOfX = (int) (Math.log(n) / Math.log(x));
+result = Math.pow(x, greatestPowerOfX);
+```
