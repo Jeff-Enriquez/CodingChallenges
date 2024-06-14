@@ -12,21 +12,21 @@
  */
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
-        int minimalLength = nums.length + 1;
-        int firstIdx = 0;
-        int lastIdx = 0;
-        int sum = nums[firstIdx];
-        while(lastIdx < nums.length - 1 || sum >= target) {
-            if(sum >= target) {
-                if(lastIdx - firstIdx + 1 < minimalLength)
-                    minimalLength = lastIdx - firstIdx + 1;
-                sum -= nums[firstIdx++];
-            } else {
-                sum += nums[++lastIdx];
-            }
-        }
-        if(minimalLength == nums.length + 1)
+        int rightI = 0;
+        int sum = 0;
+        while(rightI < nums.length && sum < target)
+            sum += nums[rightI++];
+        if(sum < target)
             return 0;
-        return minimalLength;
+        int leftI = 0;
+        while(rightI < nums.length) {
+            sum -= nums[leftI++];
+            sum += nums[rightI++];
+            while(sum - nums[leftI] >= target)
+                sum -= nums[leftI++];
+        }
+        while(sum - nums[leftI] >= target)
+            sum -= nums[leftI++];
+        return rightI - leftI;
     }
 }
