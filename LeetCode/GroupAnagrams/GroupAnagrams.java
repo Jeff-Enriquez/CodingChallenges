@@ -35,4 +35,26 @@ public class GroupAnagrams {
         }
         return new ArrayList<>(groupedAnagrams.values());
     }
+
+    /*
+     * More robust solution. Accounts for any character.
+     * Time Complexity: O(n * m)
+     * Space Complexity: O(n * m)
+     *      n = the number of strings
+     *      m = the average length of the strings
+     */
+    public List<List<String>> groupAnagrams2(String[] strs) {
+        Map<Map<Character,Integer>, List<String>> groupedAnagrams = new HashMap<>();
+        for(String str : strs) {
+            Map<Character, Integer> characterCount = new HashMap<>();
+            char[] chArray = str.toCharArray();
+            for(Character c : chArray) {
+                characterCount.put(c, characterCount.getOrDefault(c, 0) + 1);
+            }
+            List<String> list = groupedAnagrams.getOrDefault(characterCount, new ArrayList<String>());
+            list.add(str);
+            groupedAnagrams.put(characterCount, list);
+        }
+        return new ArrayList<>(groupedAnagrams.values());
+    }
 }
