@@ -5,6 +5,7 @@
 - [Sum of an Arithmetic Series](#sum-of-an-arithmetic-series)
 - [Sum of Squares](#sum-of-squares)
 - [Sum of the First n Natural Numbers](#sum-of-the-first-n-natural-numbers)
+- [Sum of a List of Arithmetic Progression](#sum-of-a-list-of-arithmetic-progression)
 - [Permutations](#permutations)
    - [Permutation Without Repetition](#permutation-without-repetition)
 - [Combinations](#combinations)
@@ -51,6 +52,16 @@ Calculates the sum of *n*.
    ["aaaa"] -> 1
    4 + 3 + 2 + 1 = 10
 
+### Sum of a List of Arithmetic Progression
+`(n * (2 * a + (n - 1) * d)) / 2`
+ *n* represents the number of terms, *a* is the first term in the sequence, and *d* is the common distance between terms.
+ **Example**
+ <ins>Solve for n: (4 * 1) + (4 * 2) + (4 * 3) + ... + (4 * n)</ins>
+ <ins>n = 10, a = 4, d = 4</ins>
+1) Solve by formula:
+   answer = (10 * (2 * 4 + (10 - 1) * 4)) / 2
+   answer = 220
+   
 ## Permutations
 ### Permutation Without Repetition
 `n!/(n-r)!`
